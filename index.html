@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio | Juan Sosa</title>
+<meta name="description" content="Portafolio de Juan A. Sosa: docente de informática y estudiante de la Tecnicatura en Programación (UTN San Rafael).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#0a0a0a; --panel:#151515; --panel-2:#1c1c1c; --rojo:#e2001a; --rojo-osc:#6d0010;
+  --blanco:#f1f1f1; --gris:#9b9b9b; --linea:rgba(226,0,26,.35);
+  --corte:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;color:var(--blanco);font:500 1.12rem/1.6 Rajdhani,system-ui,sans-serif;
+  background:var(--negro) linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/100% 4px}
+h1,h2,h3{font-family:Rajdhani,system-ui,sans-serif;margin:0;text-transform:uppercase;line-height:1.05}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+.mono{font-family:"Share Tech Mono",ui-monospace,monospace}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+
+header{position:sticky;top:0;z-index:5;background:rgba(10,10,10,.94);border-bottom:2px solid var(--rojo)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.7rem;padding-bottom:.7rem;flex-wrap:wrap}
+.logo{font:700 1.3rem Rajdhani,sans-serif;letter-spacing:.12em;text-decoration:none;text-transform:uppercase}
+.logo b{color:var(--rojo)}
+nav ul{display:flex;gap:1.2rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--gris);font:400 .9rem "Share Tech Mono",monospace;text-transform:uppercase;letter-spacing:.06em}
+nav a:hover{color:var(--rojo)}
+
+.hero{padding:4rem 0 2.5rem}
+.hero .wrap{display:grid;grid-template-columns:1fr 16rem;gap:3rem;align-items:center}
+.estado{color:var(--rojo);font:400 .95rem "Share Tech Mono",monospace;margin-bottom:.8rem}
+.hero h1{font-size:clamp(3rem,9vw,6rem);font-weight:700;letter-spacing:.02em;animation:glitch .9s steps(2,end) 1}
+.hero h1 span{color:var(--rojo)}
+.hero .rol{font:600 1.5rem Rajdhani,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--gris);margin:.6rem 0 1.2rem}
+.hero p{max-width:34rem;color:#cfcfcf;margin:0 0 1.6rem}
+.botones{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.65rem 1.6rem;text-decoration:none;font:700 1.05rem Rajdhani,sans-serif;text-transform:uppercase;letter-spacing:.1em;border:2px solid var(--rojo);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.btn.principal{background:var(--rojo)}
+.btn:hover{background:var(--blanco);color:var(--negro);border-color:var(--blanco)}
+.marco{background:var(--rojo);padding:3px;clip-path:var(--corte);aspect-ratio:1}
+.foto{width:100%;height:100%;background:var(--panel);clip-path:var(--corte);display:grid;place-items:center;font:700 4.5rem Rajdhani,sans-serif;color:var(--rojo)}
+.foto img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05)}
+
+.consola{margin-bottom:3.5rem}
+pre{margin:0;padding:1.3rem 1.5rem;background:var(--panel);border-left:5px solid var(--rojo);clip-path:var(--corte);font:400 .95rem/1.7 "Share Tech Mono",monospace;overflow-x:auto;color:#ddd}
+.k{color:var(--rojo)} .s{color:#fff} .c{color:var(--gris)}
+
+section{padding:3rem 0;border-top:1px solid var(--linea)}
+section h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:1.8rem;padding-left:1rem;border-left:8px solid var(--rojo);letter-spacing:.05em}
+.fila{display:grid;grid-template-columns:11rem 1fr;gap:.4rem 2rem;padding:1.2rem 1.4rem;margin-bottom:1rem;background:var(--panel);clip-path:var(--corte)}
+.fila .cuando{color:var(--rojo);font:400 .95rem "Share Tech Mono",monospace}
+.fila h3{font-size:1.35rem;margin-bottom:.3rem;letter-spacing:.03em}
+.fila p{margin:0;color:#c8c8c8}
+.tec{display:block;margin-top:.5rem;font:400 .85rem "Share Tech Mono",monospace;color:var(--gris)}
+.ver{display:inline-block;margin-top:.6rem;color:var(--rojo);font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:2px solid var(--rojo)}
+.ver:hover{color:var(--blanco);border-color:var(--blanco)}
+.captura{display:block;width:100%;max-height:15rem;object-fit:cover;margin-bottom:.8rem;border:1px solid var(--linea)}
+.sobre p{max-width:44rem;margin:0 0 1rem;color:#d6d6d6}
+.tecnologias{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;margin:0;padding:0}
+.tecnologias li{padding:.35rem 1rem;background:var(--panel-2);border-left:3px solid var(--rojo);font:400 .95rem "Share Tech Mono",monospace}
+.contacto a{display:inline-block;margin:0 1rem .6rem 0}
+footer{padding:2rem 0;border-top:2px solid var(--rojo);color:var(--gris);font:400 .85rem "Share Tech Mono",monospace}
+
+code.escribiendo::after{content:"";display:inline-block;width:.6em;height:1.1em;margin-left:2px;vertical-align:-.2em;background:var(--rojo);animation:parpadeo 1s steps(1) infinite}
+@keyframes parpadeo{50%{opacity:0}}
+@keyframes glitch{
+  0%{text-shadow:4px 0 var(--rojo),-4px 0 #00e5ff;transform:translateX(-3px)}
+  25%{text-shadow:-4px 0 var(--rojo),4px 0 #00e5ff;transform:translateX(3px)}
+  50%{text-shadow:3px 0 var(--rojo),-3px 0 #00e5ff;transform:translateX(-2px)}
+  100%{text-shadow:none;transform:none}
+}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .marco{max-width:11rem;order:-1}
+  .fila{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1{animation:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#inicio"><b>//</b> Juan Sosa</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#tecnologias">Tecnologías</a></li>
+        <li><a href="#proyectos">Proyectos UTN</a></li>
+        <li><a href="#proyectos-personales">Personales</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="estado">Hola, un gusto, soy</div>
+        <h1>Juan <span>Sosa</span></h1>
+        <p class="rol">Docente de informática · Estudiante de programación</p>
+        <p>Enseño informática en el nivel secundario y soy estudiante de la Tecnicatura Universitaria en Programación, en la Universidad Tecnológica Nacional (UTN) San Rafael. Me interesa entender bien las cosas para poder explicarlas con claridad y llevar cada lenguaje que aprendo al aula.</p>
+        <div class="botones">
+          <a class="btn principal" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="#contacto">Contactarme</a>
+        </div>
+      </div>
+      <!-- Poné tu foto en la carpeta IMG con el nombre juan.jpg. Si no está, se muestran tus iniciales. -->
+      <div class="marco">
+        <div class="foto" id="foto" role="img" aria-label="Foto de Juan Sosa">
+          <img src="IMG/juan.jpg" alt="Juan Sosa" onerror="this.remove();document.getElementById('foto').textContent='JS'">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="consola">
+    <div class="wrap">
+<pre><code id="codigo"><span class="k">class</span> Juan {
+    String rol     = <span class="s">"docente de informática"</span>;
+    String estudia = <span class="s">"Tecnicatura en Programación"</span>;
+
+    <span class="k">void</span> aprender() {
+        compartir();  <span class="c">// lo que aprendo, lo llevo al aula</span>
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <section id="sobre-mi" class="sobre">
+    <div class="wrap">
+      <h2>Sobre mí</h2>
+      <p>Tengo 25 años. Soy docente de nivel secundario en el área de informática y estudio la Tecnicatura Universitaria en Programación en la UTN San Rafael (cohorte 2026).</p>
+      <p>El Profesorado de Educación Secundaria en Informática despertó en mí el deseo de saber más sobre programación y sobre los distintos lenguajes, para crecer y poder transmitir ese conocimiento a las futuras generaciones.</p>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <h2>Experiencia</h2>
+      <div class="fila">
+        <div class="cuando">ACTUALIDAD</div>
+        <div>
+          <h3>Docente de nivel secundario, área de informática</h3>
+          <p>Enseño informática en escuelas secundarias: lógica, programación y herramientas digitales.</p>
+          <!-- Podés agregar acá los nombres de las escuelas y los temas que das. -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estudios">
+    <div class="wrap">
+      <h2>Estudios</h2>
+      <div class="fila">
+        <div class="cuando">2026 – ACTUALIDAD</div>
+        <div>
+          <h3>Tecnicatura Universitaria en Programación</h3>
+          <p>Universidad Tecnológica Nacional, Facultad Regional San Rafael. Programación estructurada y orientada a objetos, lógica y trabajo colaborativo con Git.</p>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="cuando">FORMACIÓN DOCENTE</div>
+        <div>
+          <h3>Profesorado de Educación Secundaria en Informática</h3>
+          <p>Instituto de Educación Superior N.º 9-011 “Del Atuel”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnologias">
+    <div class="wrap">
+      <h2>Tecnologías</h2>
+      <ul class="tecnologias">
+        <li>Java</li><li>Python</li><li>PSeInt</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git</li><li>GitHub</li><li>NetBeans</li><li>VS Code</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <h2>Proyectos UTN</h2>
+      <div class="fila">
+        <div class="cuando">TECNICATURA · GRUPAL</div>
+        <div>
+          <!-- Captura opcional: guardala en IMG/minijuegos.png. Si no existe, no se muestra. -->
+          <img class="captura" src="IMG/minijuegos.png" alt="Captura de los minijuegos" onerror="this.remove()">
+          <h3>Minijuegos: Piedra, Papel o Tijera, Ta-Te-Ti y Ahorcado</h3>
+          <p>Proyecto del equipo Syntax Error. Primero resolvimos la lógica en PSeInt y después pasamos los tres juegos a Java, aplicando estructuras de control y métodos.</p>
+          <span class="tec">PSeInt · Java · NetBeans</span>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="cuando">TECNICATURA · GRUPAL</div>
+        <div>
+          <h3>Portafolio del grupo Syntax Error</h3>
+          <p>Sitio web del equipo, armado entre todos con ramas y pull requests en GitHub y publicado en Netlify. Mi parte: mi tarjeta de presentación y mi foto.</p>
+          <span class="tec">HTML · CSS · JavaScript · Git</span>
+          <a class="ver" href="https://syntaxerrorportfolio.netlify.app" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+        </div>
+      </div>
+      <!-- Para sumar un proyecto, copiá un bloque "fila" completo y cambiá el texto y el enlace. -->
+    </div>
+  </section>
+
+  <section id="proyectos-personales">
+    <div class="wrap">
+      <h2>Proyectos personales</h2>
+      <div class="fila">
+        <div class="cuando">PERSONAL · EMPRENDIMIENTO</div>
+        <div>
+          <!-- Captura opcional: guardala en IMG/gemiinis.png. Si no existe, no se muestra. -->
+          <img class="captura" src="IMG/gemiinis.png" alt="Captura de la tienda GÉMINIS" onerror="this.remove()">
+          <h3>GÉMINIS: catálogo web de ropa deportiva y urbana</h3>
+          <p>Página web para la tienda de ropa de un amigo (gemiinis.sr, San Rafael). Tiene catálogo con filtros por categoría, fotos con opciones de color y un botón que abre WhatsApp con el mensaje del producto ya armado. Diseño adaptable a celular, publicado desde GitHub.</p>
+          <span class="tec">HTML · CSS · JavaScript · Git · GitHub Pages</span>
+          <a class="ver" href="https://eljuani2819.github.io/gemiinis-sr/" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p>Si querés comunicarte conmigo, podés hacerlo por acá.</p>
+      <p>
+        <a class="ver" href="https://github.com/elJuani2819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="ver" href="https://www.instagram.com/juani_2819/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="ver" href="mailto:profjuanasosa@gmail.com">Correo</a>
+        <a class="ver" href="tel:+542604666742">Teléfono</a>
+      </p>
+      <p class="mono" style="color:var(--gris);font-size:.95rem">
+        profjuanasosa@gmail.com · 2604 66-6742
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 JUAN A. SOSA // FIN DE TRANSMISIÓN</div>
+</footer>
+<script>
+/* Efecto de máquina de escribir en el bloque de código. Si el visitante prefiere menos movimiento, el código se muestra completo. */
+(function () {
+  var cod = document.getElementById("codigo");
+  if (!cod || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var pre = cod.parentNode, html = cod.innerHTML, i = 0;
+  pre.style.minHeight = pre.offsetHeight + "px";
+  cod.innerHTML = "";
+  cod.classList.add("escribiendo");
+  function escribir() {
+    if (i >= html.length) return;
+    if (html[i] === "<") { i = html.indexOf(">", i) + 1; }
+    else if (html[i] === "&") { i = html.indexOf(";", i) + 1; }
+    else { i++; }
+    cod.innerHTML = html.slice(0, i);
+    setTimeout(escribir, html[i - 1] === " " ? 6 : 24);
+  }
+  new IntersectionObserver(function (e, o) {
+    if (e[0].isIntersecting) { o.disconnect(); escribir(); }
+  }, { threshold: 0.4 }).observe(pre);
+})();
+</script>
+</body>
+</html>
